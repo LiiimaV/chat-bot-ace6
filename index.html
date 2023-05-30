@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chatbot</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <div class="chatbot">
+    <div class="chat-header">
+        <span id="cabecalho">
+          <img src="imagens/logo-pequeno.png" alt="Logo" class="logo">
+          <a href="https://arapiraca.ufal.br/" target="_blank">
+            <h2>UFAL</h2>
+          </a>
+        <span>    
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div id="chat-date"></div>
+    </div>
+    <div class="chat-input">
+      <input type="text" placeholder="Digite o número de sua opção de escolha..." id="user-input" />
+      <button onclick="handleUserMessage()">
+        <i class="fa fa-paper-plane"></i> 
+      </button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
