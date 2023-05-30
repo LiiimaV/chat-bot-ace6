@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chatbot</title>
+  <title>Chatterbot</title>
+  <link rel="shortcut icon" href="imagens/ufal.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -11,16 +12,19 @@
         <span id="cabecalho">
           <img src="imagens/logo-pequeno.png" alt="Logo" class="logo">
           <a href="https://arapiraca.ufal.br/" target="_blank">
-            <h2>UFAL</h2>
+            <h2 title="Universidade Federal de Alagoas">UFAL</h2>
           </a>
         <span>    
     </div>
     <div class="chat-messages" id="chat-messages">
-      <div id="chat-date"></div>
+      <div id="chat-date" title="data"></div>
+      <button id="clear-message" title="Limpar tudo">
+        <i class="fas fa-trash" alt="limpar tudo"></i>
+      </button>
     </div>
     <div class="chat-input">
-      <input type="text" placeholder="Digite o número de sua opção de escolha..." id="user-input" />
-      <button onclick="handleUserMessage()">
+      <input type="text" placeholder="Digite sua opção de escolha..." id="user-input" />
+      <button onclick="handleUserMessage()" title="enviar mensagem">
         <i class="fa fa-paper-plane"></i> 
       </button>
     </div>

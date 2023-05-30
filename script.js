@@ -4,25 +4,29 @@ function handleUserMessage() {
   addUserMessage(userMessage);
 
   if (userMessage !== '') {
+    // Verifica se a mensagem do usuário é um número
     var optionNumber = parseInt(userMessage);
     if (!isNaN(optionNumber)) {
       var menuList = document.getElementsByClassName('menu-list')[0];
       var menuOptions = menuList.getElementsByTagName('li');
       var totalOptions = menuOptions.length;
+
+      // Verifica se o número está dentro do intervalo válido do menu
       if (optionNumber >= 1 && optionNumber <= totalOptions) {
         var selectedOption = menuOptions[optionNumber - 1].getElementsByTagName('a')[0];
         selectedOption.click();
         
-        userInput.value = '';
-        return;
+        userInput.value = ''; // Limpa o campo de entrada
+        return; // Encerra a função após a ação do menu ser tomada
       }
     }
     
     // Caso a mensagem não seja um número válido ou não corresponda a uma opção do menu
-    addBotMessage("Opção Inválida! Digite uma opção que\nseja correspondente ao menu!")
+    addBotMessage(`Opção Inválida!\u{1F6AB} Digite uma opção que\nseja correspondente ao menu!`)
     userInput.value = '';
   }
 }
+
 
 function addUserMessage(message) {
   var chatMessages = document.getElementById('chat-messages');
@@ -94,11 +98,43 @@ function updateChatDate() {
   });
 }
 
-function exibirMensagemBoasVindas() {
-setTimeout(function() {
-  addBotMessage("Olá! Seja bem-vindo à Universidade Federal de Alagoas!");
-}, 1000);
+
+function clearChatMessages() {
+  var chatMessages = document.getElementById('chat-messages');
+  var messages = chatMessages.getElementsByClassName('user-message-container');
+  var botMessages = chatMessages.getElementsByClassName('bot-message-container');
+
+  // Remove as mensagens dos usuários
+  while (messages.length > 0) {
+    chatMessages.removeChild(messages[0]);
+  }
+
+  // Remove as mensagens do chatbot
+  while (botMessages.length > 0) {
+    chatMessages.removeChild(botMessages[0]);
+  }
+  setTimeout(function() {
+    addBotMessage(`Selecione uma das opção do menu abaixo: \u{1F447}`);
+  }, 1000);
+  setTimeout(function() {
+    showMenu();
+  }, 3300);
 }
+
+var clearButton = document.getElementById('clear-message');
+clearButton.addEventListener('click', clearChatMessages);
+
+
+
+function exibirMensagemBoasVindas() {
+  setTimeout(function() {
+    addBotMessage("Olá! Seja bem-vindo(a) à Universidade Federal de Alagoas!");
+  }, 1000);
+  setTimeout(function() {
+    addBotMessage(`Selecione uma das opção do menu abaixo: \u{1F447}`);
+  }, 4000);
+}
+
 
 window.addEventListener('load', exibirMensagemBoasVindas);
 
@@ -225,7 +261,7 @@ function openExternalLink(url) {
 window.open(url, '_blank');
 }
 
-// Adicione a função showMenu ao seu código existente onde desejar
 setTimeout(function() {
-showMenu();
-}, 4000);
+  showMenu(); 
+}, 6300);
+
